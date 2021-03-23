@@ -11,12 +11,6 @@ def displayMenu():
     choice = input("Type one letter (a/v/q):").strip()
     return choice
 
-#creating functions for the menu options:
-students= []
-#this will be expanded in next step
-def readModules():
-    return []
-
 # students are a dict; enter student name by input
 # student modules entered by fuction readModules
 def doAdd(students):
@@ -43,6 +37,11 @@ def readModules():
 
     return modules
 
+def displayModules(modules):
+    print ("\tModule Name \tGrade")
+    for module in modules:
+        print("\t{}  \t\t{}".format(module["name"], module["grade"]))
+
 def doView():
     for currentStudent in students:
         print(currentStudent["name"])
@@ -57,7 +56,7 @@ while(choice != 'q'):
     if choice == 'a':
         doAdd(students)
     elif choice == 'v':
-        doView(students)
+        doView()
     elif choice !='q' :
         print("\n\nplease select either a, v or q")
     choice=displayMenu()
